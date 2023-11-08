@@ -5,9 +5,11 @@
   "scripts": {
     "start": "npm run serve",
     "serve": "vue-cli-service serve --port 4001",
-    "build": "vue-cli-service build --watch",
+    "build": "vue-cli-service build",
+    "watch": "npm run build -- --watch",
     "lint": "vue-cli-service lint",
-    "serve:standalone": "vue-cli-service serve --mode standalone"
+    "serve:standalone": "vue-cli-service serve --mode standalone",
+    "serve:single-spa": "concurrently 'npm:watch' 'python3 -m http.server -d dist/ 4001'"
   },
   "dependencies": {
     "core-js": "^3.8.3",
